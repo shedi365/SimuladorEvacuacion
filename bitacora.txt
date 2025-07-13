@@ -63,3 +63,25 @@ Adapté la estructura sugerida para crear el método procesarComando() que manej
 
 **¿Qué problemas se encontraron?**
 El principal desafío fue manejar correctamente el acceso a conexiones seguras, verificando si el jugador tiene la credencial necesaria. También tuve problemas con el manejo de excepciones cuando el usuario ingresa algo que no es un número válido. Otro problema fue asegurarme de que el comando SALIR solo funcionara cuando el jugador estuviera en el punto de liberación, para mantener la coherencia del juego.
+
+## Mohamad
+
+Parte 4: Clase Principal SimuladorEvacuacion
+
+**¿Qué se trabajó hoy?**
+Hoy implementé la clase principal SimuladorEvacuacion que contiene el método main() para ejecutar el simulador. Esta clase maneja la interfaz inicial con el usuario, crea la instancia del MecanismoEvasion, verifica que exista una ruta de evacuación posible, y ejecuta el bucle principal del programa que procesa los comandos del usuario hasta que la misión se complete.
+
+**¿Qué inteligencia artificial se utilizó?**
+ChatGPT
+
+**¿Qué prompt se hizo?**
+"Necesito crear una clase principal con método main para un juego de texto tipo escape room en Java. La clase debe mostrar instrucciones iniciales, crear una instancia de la clase que maneja la lógica del juego, y ejecutar un bucle que muestre la interfaz y procese comandos del usuario hasta que el juego termine. ¿Cómo implementarías esto?"
+
+**¿Qué respondió la IA?**
+La IA me proporcionó un esquema para una clase principal con método main que incluye: mensajes de bienvenida e instrucciones, creación de la instancia del juego, un bucle while que continúa hasta que el juego termina, lectura de comandos del usuario con Scanner, y mensajes de finalización. También sugirió verificar condiciones iniciales antes de comenzar el bucle principal y cerrar recursos como Scanner al finalizar.
+
+**¿Cómo se adaptó esa respuesta al proyecto?**
+Adapté la estructura sugerida para crear la clase SimuladorEvacuacion con un método main que muestra instrucciones específicas para nuestro simulador de evacuación. Implementé la verificación inicial de ruta de evacuación para asegurar que el juego sea solucionable antes de comenzar. El bucle principal llama a los métodos mostrarInterfaz() y procesarComando() de la clase MecanismoEvasion, y continúa hasta que la misión se completa. Añadí mensajes temáticos para la introducción y finalización que encajan con el contexto de una instalación científica en emergencia.
+
+**¿Qué problemas se encontraron?**
+El principal desafío fue asegurar que la verificación inicial de ruta funcionara correctamente, ya que si no existe un camino posible hasta la salida, el juego no debe comenzar. También tuve que asegurarme de que el bucle principal terminara apropiadamente cuando la misión se completara, ya sea por evacuación exitosa o por abortar la misión. Otro problema fue decidir qué información mostrar en las instrucciones iniciales sin revelar demasiado sobre la mecánica del juego.
