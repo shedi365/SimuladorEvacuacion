@@ -1,0 +1,21 @@
+## Shedi
+
+ Parte 1: Clases ConexionSegura y Espacio
+
+**¿Qué se trabajó hoy?**
+Hoy implementé las clases base para el simulador de evacuación: ConexionSegura y Espacio. La clase ConexionSegura representa los enlaces entre diferentes sectores de la instalación, permitiendo conexiones normales y seguras que requieren credenciales. La clase Espacio representa cada sector con sus características y objetos.
+
+**¿Qué inteligencia artificial se utilizó?**
+ChatGPT
+
+**¿Qué prompt se hizo?**
+"Necesito ayuda para diseñar un sistema de navegación para un juego de texto tipo escape room. Quiero crear una clase para representar habitaciones y otra para representar conexiones entre ellas, algunas conexiones deberían requerir llaves o credenciales. ¿Cómo podría estructurar estas clases en Java?"
+
+**¿Qué respondió la IA?**
+La IA me proporcionó un esquema básico de dos clases: Room y Connection, con atributos y métodos para gestionar las conexiones entre habitaciones y el sistema de acceso con credenciales. Sugirió usar listas para almacenar las conexiones y objetos, y métodos para verificar si una conexión requiere credencial.
+
+**¿Cómo se adaptó esa respuesta al proyecto?**
+Adapté las clases sugeridas a nuestro contexto de simulador de evacuación, renombrando Room a Espacio y Connection a ConexionSegura. Modifiqué los constructores para que aceptaran los parámetros necesarios para nuestro proyecto y añadí métodos específicos como marcarSalida() y agregarObjeto().
+
+**¿Qué problemas se encontraron?**
+Tuve problemas para decidir qué tipo de colección usar para almacenar las vías y los objetos. Inicialmente usé ArrayList para ambos, pero luego cambié las vías a LinkedList porque necesitaba hacer muchas inserciones. También tuve dudas sobre si hacer las propiedades privadas con getters y setters o dejarlas con acceso package-private para simplificar el código.
