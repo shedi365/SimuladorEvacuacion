@@ -19,3 +19,26 @@ Adapté las clases sugeridas a nuestro contexto de simulador de evacuación, ren
 
 **¿Qué problemas se encontraron?**
 Tuve problemas para decidir qué tipo de colección usar para almacenar las vías y los objetos. Inicialmente usé ArrayList para ambos, pero luego cambié las vías a LinkedList porque necesitaba hacer muchas inserciones. También tuve dudas sobre si hacer las propiedades privadas con getters y setters o dejarlas con acceso package-private para simplificar el código.
+
+## Omar
+
+Parte 2: Estructura Principal de MecanismoEvasion
+
+**¿Qué se trabajó hoy?**
+Hoy implementé la primera parte de la clase MecanismoEvasion, que es el núcleo del simulador. Desarrollé el constructor, la configuración de la instalación, el método de verificación de ruta de evacuación y el método para mostrar la interfaz al usuario.
+
+**¿Qué inteligencia artificial se utilizó?**
+ChatGPT
+
+**¿Qué prompt se hizo?**
+"Necesito implementar un sistema que represente un edificio con varias habitaciones conectadas entre sí para un juego de escape. Algunas habitaciones deben tener objetos que el jugador puede recoger, y algunas conexiones deben requerir objetos específicos para abrirse. También necesito un método para verificar si existe un camino desde la posición actual hasta la salida. ¿Cómo implementaría esto en Java?"
+
+**¿Qué respondió la IA?**
+La IA me proporcionó un esquema para una clase que gestiona la navegación en un edificio, con métodos para configurar las habitaciones y sus conexiones, verificar rutas usando el algoritmo BFS (Breadth-First Search), y mostrar información al usuario. Sugirió usar HashSet para rastrear habitaciones visitadas y Queue para implementar el algoritmo BFS.
+
+**¿Cómo se adaptó esa respuesta al proyecto?**
+Adapté la estructura sugerida para crear la clase MecanismoEvasion con los métodos configurarInstalacion(), verificarRutaEvacuacion() y mostrarInterfaz(). Implementé la configuración completa de la instalación científica con siete sectores diferentes, objetos estratégicamente ubicados y conexiones entre sectores, algunas requiriendo credenciales específicas. El método de verificación de ruta usa BFS para comprobar si existe un camino desde la ubicación actual hasta un punto de liberación.
+
+**¿Qué problemas se encontraron?**
+El principal desafío fue diseñar la instalación de manera que fuera interesante pero solucionable, asegurando que existiera al menos un camino hasta la salida si el jugador recoge todos los objetos necesarios. También tuve dificultades implementando correctamente el algoritmo BFS para verificar la ruta de evacuación, especialmente considerando que algunas conexiones requieren credenciales que el jugador podría no tener inicialmente.
+
