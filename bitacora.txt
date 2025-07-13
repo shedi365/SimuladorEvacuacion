@@ -42,3 +42,24 @@ Adapté la estructura sugerida para crear la clase MecanismoEvasion con los mét
 **¿Qué problemas se encontraron?**
 El principal desafío fue diseñar la instalación de manera que fuera interesante pero solucionable, asegurando que existiera al menos un camino hasta la salida si el jugador recoge todos los objetos necesarios. También tuve dificultades implementando correctamente el algoritmo BFS para verificar la ruta de evacuación, especialmente considerando que algunas conexiones requieren credenciales que el jugador podría no tener inicialmente.
 
+## Omar
+
+Parte 3: Procesamiento de Comandos en MecanismoEvasion
+
+**¿Qué se trabajó hoy?**
+Hoy implementé el método procesarComando() que es fundamental para la interactividad del simulador. Este método interpreta y ejecuta las acciones del usuario, como moverse entre sectores, recoger objetos, revisar inventario, abortar la misión y evacuar cuando se encuentra en el punto de liberación.
+
+**¿Qué inteligencia artificial se utilizó?**
+ChatGPT
+
+**¿Qué prompt se hizo?**
+"Necesito implementar un sistema de procesamiento de comandos para un juego de texto en Java. Los comandos incluyen moverse a otra ubicación (usando números), recoger objetos (TOMAR), ver inventario (INV) y salir (FIN). También necesito verificar si el jugador tiene los objetos necesarios para abrir puertas bloqueadas. ¿Cómo estructurarías este sistema?"
+
+**¿Qué respondió la IA?**
+La IA me proporcionó un esquema de método que usa condicionales para identificar diferentes tipos de comandos y ejecutar las acciones correspondientes. Sugirió usar equalsIgnoreCase() para comparar comandos de texto y parseInt() con manejo de excepciones para los comandos numéricos. También recomendó estructurar el método con returns tempranos para mayor claridad y explicó cómo verificar si el jugador tiene los objetos necesarios para acceder a áreas restringidas.
+
+**¿Cómo se adaptó esa respuesta al proyecto?**
+Adapté la estructura sugerida para crear el método procesarComando() que maneja todos los comandos de nuestro simulador. Implementé la lógica para cada comando: FIN para abortar la misión, INV para ver recursos, TOMAR para recoger objetos, SALIR para evacuar en el punto de liberación, y números para moverse entre sectores. Añadí la verificación de credenciales cuando el usuario intenta acceder a conexiones seguras, permitiendo el paso solo si tiene la credencial necesaria en su inventario.
+
+**¿Qué problemas se encontraron?**
+El principal desafío fue manejar correctamente el acceso a conexiones seguras, verificando si el jugador tiene la credencial necesaria. También tuve problemas con el manejo de excepciones cuando el usuario ingresa algo que no es un número válido. Otro problema fue asegurarme de que el comando SALIR solo funcionara cuando el jugador estuviera en el punto de liberación, para mantener la coherencia del juego.

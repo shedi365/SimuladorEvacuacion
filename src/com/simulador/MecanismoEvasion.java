@@ -101,3 +101,55 @@ public class MecanismoEvasion {
         return misionCompleta;
     }
 }
+
+public void procesarComando(String entrada) {
+    if (entrada.equalsIgnoreCase("FIN")) {
+        misionCompleta = true;
+        System.out.println("Misión abortada por el operador");
+        return;
+    }
+    
+    if (entrada.equalsIgnoreCase("INV")) {
+        System.out.println("Recursos actuales: " + recursos);
+        return;
+    }
+    
+    if (entrada.equalsIgnoreCase("TOMAR")) {
+        if (!ubicacionActual.objetos.isEmpty()) {
+            String objeto = ubicacionActual.objetos.remove(0);
+            recursos.add(objeto);
+            System.out.println("Objeto adquirido: " + objeto);
+        } else {
+            System.out.println("No hay objetos disponibles");
+        }
+        return;
+    }
+    
+    if (ubicacionActual.puntoLiberacion && entrada.equalsIgnoreCase("SALIR")) {
+        System.out.println("\n¡EVACUACIÓN EXITOSA! Has completado la misión");
+        misionCompleta = true;
+        return;
+    }
+    
+    try {
+        int seleccion = Integer.parseInt(entrada) - 1;
+        if (seleccion >= 0 && seleccion < ubicacionActual.vias.size()) {
+            ConexionSegura viaSeleccionada = ubicacionActual.vias.get(seleccion);
+            
+            if (viaSeleccionada.accesoRestringido) {
+                if (recursos.contains(viaSeleccionada.credencialNecesaria)) {
+                    ubicacionActual = viaSeleccionada.conectado;
+                    System.out.println("Credencial " + viaSeleccionada.credencialNecesaria + " verificada");
+                } else {
+                    System.out.println("Acceso denegado. Se requiere: " + viaSeleccionada.credencialNecesaria);
+                }
+            } else {
+                ubicacionActual = viaSeleccionada.conectado;
+            }
+        } else {
+            System.out.println("Opción no válida");
+        }
+    } catch (NumberFormatException ex) {
+        System.out.println("Entrada no reconocida");
+    }
+}
